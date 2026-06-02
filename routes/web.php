@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Pengguna\OnboardingController;
 
 
 Route::get('/', function () {
@@ -58,3 +59,16 @@ Route::middleware('auth')->group(function () {
     })->name('admin.DashboardAdmin');
 
 });
+
+Route::middleware('auth')->group(function () {
+
+    // Halaman onboarding
+    Route::get('/onboarding', [OnboardingController::class, 'index'])
+        ->name('onboarding');
+
+    // Simpan data onboarding
+    Route::post('/onboarding', [OnboardingController::class, 'store'])
+        ->name('onboarding.store');
+
+});
+

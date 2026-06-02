@@ -19,4 +19,9 @@ class Pengguna extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function anak()
+    {
+        return $this->hasMany(Anak::class, 'id_pengguna');
+    }
 }

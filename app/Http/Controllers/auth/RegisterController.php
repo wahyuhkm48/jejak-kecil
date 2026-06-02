@@ -30,7 +30,7 @@ class RegisterController extends Controller
         ]);
 
         return redirect()
-            ->route('login')
+            ->route('onboarding')
             ->with('success', 'Registrasi berhasil');
     }
 }
