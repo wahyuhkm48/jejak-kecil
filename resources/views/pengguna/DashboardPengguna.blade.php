@@ -11,7 +11,7 @@
         <section class="relative px-12 pt-18 pb-5">
 
             <h1 class="font-bold text-[#033E8A] text-5xl">
-                Welcome Back, {{ Auth::user()->nama }}
+                Welcome Back, {{ Auth::user()->anak?->nama_panggilan ?? 'Anak' }}
             </h1>
 
             <p class="mt-4 text-gray-500 text-xl max-w-lg">

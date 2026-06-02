@@ -5,14 +5,14 @@
 @section('content')
 
 
-<div class="min-h-screen bg-[#ffffff] pt-20">
+<div class="min-h-screen bg-[#deecff] pt-20">
 
     <div class="max-w-4xl mx-auto px-6">
 
         <!-- Header -->
         <div class="text-center mb-10">
 
-            <h1 class="text-4xl font-bold text-gray-800">
+            <h1 class="text-4xl font-bold text-[#033E8A]">
                 Yuk Lengkapi Profil Anak
             </h1>
 

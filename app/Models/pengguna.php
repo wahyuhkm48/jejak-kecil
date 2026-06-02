@@ -22,6 +22,6 @@ class Pengguna extends Authenticatable
 
     public function anak()
     {
-        return $this->hasMany(Anak::class, 'id_pengguna');
+        return $this->hasone(Anak::class, 'id_pengguna');
     }
 }
