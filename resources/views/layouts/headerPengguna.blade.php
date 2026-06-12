@@ -17,16 +17,16 @@
 <body class="bg-white overflow-x-hidden">
 
     <!-- ===== HERO SECTION ===== -->
-    <section class="hero-section min-h-screen overflow-hidden relative mt-2">
+    <section class="hero-section min-h-screen overflow-hidden relative ">
 
         <!-- NAVBAR -->
-        <nav class="flex items-center justify-between px-8 py-6 relative z-10">
+        <nav class="flex items-center bg-[#033E8a] justify-between px-8 py-6 relative z-10">
 
             <!-- Logo -->
             <div class="flex items-center gap-2 ml-4">
-                <img src="{{ asset('assets/img/logo.png') }}" alt="logo" class="w-10 h-10">
+                <img src="{{ asset('assets/img/logo_putih.png') }}" alt="logo" class="w-10 h-10">
 
-                <span class="font-montserrat font-bold text-[#033E8a] text-[17px] italic">
+                <span class="font-montserrat font-bold text-white text-[17px] italic">
                     Jejak Kecil
                 </span>
             </div>
@@ -36,42 +36,42 @@
 
                 <li>
                     <a href="#"
-                        class="font-montserrat font-medium text-gray-700 text-[16px] hover:text-primary transition-colors">
+                        class="font-montserrat font-medium text-white text-[16px] hover:text-primary transition-colors">
                         Home
                     </a>
                 </li>
 
                 <li>
                     <a href="#"
-                        class="font-montserrat font-medium text-gray-700 text-[16px] hover:text-primary transition-colors">
+                        class="font-montserrat font-medium text-white text-[16px] hover:text-primary transition-colors">
                         Modules
                     </a>
                 </li>
 
                 <li>
                     <a href="#"
-                        class="font-montserrat font-medium text-gray-700 text-[16px] hover:text-primary transition-colors">
+                        class="font-montserrat font-medium text-white text-[16px] hover:text-primary transition-colors">
                         Consultation
                     </a>
                 </li>
 
                 <li>
                     <a href="#"
-                        class="font-montserrat font-medium text-gray-700 text-[16px] hover:text-primary transition-colors">
+                        class="font-montserrat font-medium text-white text-[16px] hover:text-primary transition-colors">
                         Report
                     </a>
                 </li>
 
                  <li>
                     <a href="#"
-                        class="font-montserrat font-medium text-gray-700 text-[16px] hover:text-primary transition-colors">
+                        class="font-montserrat font-medium text-white text-[16px] hover:text-primary transition-colors">
                         Gamification
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ url('/login') }}"
-                        class="font-montserrat font-medium text-gray-700 text-[16px] hover:text-primary transition-colors">
+                        class="font-montserrat font-medium text-white text-[16px] hover:text-primary transition-colors">
                         Profile
                     </a>
                 </li>
