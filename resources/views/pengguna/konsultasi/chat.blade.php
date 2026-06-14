@@ -28,7 +28,7 @@
                         <div class="w-10 h-10 rounded-full overflow-hidden bg-gradient-to-br from-[#033E8A] to-[#0AADA8]
                                     flex items-center justify-center text-white font-bold">
                             @if($jadwal->spesialis->foto)
-                                <img src="{{ asset('storage/' . $jadwal->spesialis->foto) }}"
+                                <img src="{{ asset('assets/img/' . $jadwal->spesialis->foto) }}"
                                      alt="{{ $jadwal->spesialis->nama }}"
                                      class="w-full h-full object-cover">
                             @else
@@ -111,7 +111,7 @@
                     <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 bg-gradient-to-br from-[#033E8A] to-[#0AADA8]
                                 flex items-center justify-center text-white text-xs font-bold">
                         @if($jadwal->spesialis->foto)
-                            <img src="{{ asset('storage/' . $jadwal->spesialis->foto) }}"
+                            <img src="{{ asset('assets/img/' . $jadwal->spesialis->foto) }}"
                                  class="w-full h-full object-cover">
                         @else
                             {{ strtoupper(substr($jadwal->spesialis->nama, 0, 1)) }}
@@ -134,7 +134,7 @@
                                     </p>
                                     <p class="font-montserrat text-gray-400 text-[10px]">PDF Document</p>
                                 </div>
-                                <a href="{{ asset('storage/' . $pesan->lampiran) }}"
+                                <a href="{{ asset('assets/img/' . $pesan->lampiran) }}"
                                    download="{{ $pesan->nama_lampiran }}"
                                    class="text-gray-400 hover:text-[#033E8A] transition-colors">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

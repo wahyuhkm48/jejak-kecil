@@ -37,7 +37,7 @@
                     <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-gradient-to-br
                                 from-[#033E8A] to-[#0AADA8] flex items-center justify-center text-white font-bold">
                         @if($jd->spesialis->foto)
-                            <img src="{{ asset('storage/' . $jd->spesialis->foto) }}"
+                            <img src="{{ asset('assets/img/' . $jd->spesialis->foto) }}"
                                  class="w-full h-full object-cover">
                         @else
                             {{ strtoupper(substr($jd->spesialis->nama, 0, 1)) }}

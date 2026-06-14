@@ -26,7 +26,7 @@ class KonsultasiController extends Controller
             $cari = $request->search;
             $query->where(function ($q) use ($cari) {
                 $q->where('nama', 'like', "%$cari%")
-                  ->orWhere('spesialisasi', 'like', "%$cari%");
+                    ->orWhere('spesialisasi', 'like', "%$cari%");
             });
         }
 
@@ -39,7 +39,7 @@ class KonsultasiController extends Controller
             ->get();
 
         $jadwalAkanDatang = $jadwalSaya->where('status', 'akan_datang')->first();
-        $jadwalSelesai    = $jadwalSaya->where('status', 'selesai')->take(3);
+        $jadwalSelesai = $jadwalSaya->where('status', 'selesai')->take(3);
 
         return view('pengguna.konsultasi.index', compact(
             'spesialisList',
@@ -50,26 +50,58 @@ class KonsultasiController extends Controller
     }
 
     /**
+     * Tampilkan form pemesanan jadwal
+     */
+    public function formJadwal($idSpesialis)
+{
+    $spesialis = Spesialis::with('keahlian')->findOrFail($idSpesialis);
+    $pengguna  = Auth::user();
+
+    // Ambil semua jam yang sudah terpesan oleh siapapun (status akan_datang)
+    $jamTerpesan = JadwalKonsultasi::where('id_spesialis', $idSpesialis)
+        ->where('status', 'akan_datang')
+        ->where('waktu_mulai', '>=', now())
+        ->pluck('waktu_mulai')
+        ->map(fn($dt) => $dt->format('Y-m-d H:i'))
+        ->toArray();
+
+    return view('pengguna.konsultasi.form-jadwal', compact('spesialis', 'pengguna', 'jamTerpesan'));
+}
+
+    /**
      * Buat jadwal konsultasi baru dengan spesialis
      */
     public function buatJadwal(Request $request, $idSpesialis)
-    {
-        $spesialis = Spesialis::findOrFail($idSpesialis);
-        $pengguna  = Auth::user();
+{
+    $request->validate([
+        'judul_sesi'  => 'required|string|max:255',
+        'waktu_mulai' => 'required|date|after:now',
+    ]);
 
-        // Buat jadwal baru (waktu default: besok jam 10 pagi)
-        $jadwal = JadwalKonsultasi::create([
-            'id_pengguna' => $pengguna->id,
-            'id_spesialis' => $spesialis->id,
-            'judul_sesi'   => 'Konsultasi dengan ' . $spesialis->nama,
-            'waktu_mulai'  => now()->addDay()->setTime(10, 0),
-            'status'       => 'akan_datang',
-        ]);
+    $spesialis = Spesialis::findOrFail($idSpesialis);
+    $pengguna  = Auth::user();
 
-        // Langsung masuk ke halaman chat
-        return redirect()->route('pengguna.konsultasi.chat', $jadwal->id)
-            ->with('success', 'Jadwal konsultasi berhasil dibuat!');
+    // Cek apakah jam sudah terpesan
+    $sudahTerpesan = JadwalKonsultasi::where('id_spesialis', $idSpesialis)
+        ->where('status', 'akan_datang')
+        ->where('waktu_mulai', $request->waktu_mulai)
+        ->exists();
+
+    if ($sudahTerpesan) {
+        return back()->withErrors(['waktu_mulai' => 'Jadwal jam ini sudah dipesan oleh orang lain. Silakan pilih jam lain.'])->withInput();
     }
+
+    $jadwal = JadwalKonsultasi::create([
+        'id_pengguna'  => $pengguna->id,
+        'id_spesialis' => $spesialis->id,
+        'judul_sesi'   => $request->judul_sesi,
+        'waktu_mulai'  => $request->waktu_mulai,
+        'status'       => 'akan_datang',
+    ]);
+
+    return redirect()->route('pengguna.konsultasi.chat', $jadwal->id)
+        ->with('success', 'Jadwal konsultasi berhasil dibuat!');
+}
 
     /**
      * Halaman chat konsultasi
@@ -98,7 +130,7 @@ class KonsultasiController extends Controller
     {
         $request->validate([
             'isi_pesan' => 'required|string|max:2000',
-            'lampiran'  => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:5120',
+            'lampiran' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:5120',
         ]);
 
         $pengguna = Auth::user();
@@ -110,18 +142,18 @@ class KonsultasiController extends Controller
         $namaLampiran = null;
 
         if ($request->hasFile('lampiran')) {
-            $file         = $request->file('lampiran');
+            $file = $request->file('lampiran');
             $namaLampiran = $file->getClientOriginalName();
             $lampiranPath = $file->store('lampiran-konsultasi', 'public');
         }
 
         PesanKonsultasi::create([
-            'id_jadwal'     => $jadwal->id,
-            'pengirim'      => 'pengguna',
-            'isi_pesan'     => $request->isi_pesan,
-            'lampiran'      => $lampiranPath,
+            'id_jadwal' => $jadwal->id,
+            'pengirim' => 'pengguna',
+            'isi_pesan' => $request->isi_pesan,
+            'lampiran' => $lampiranPath,
             'nama_lampiran' => $namaLampiran,
-            'sudah_dibaca'  => false,
+            'sudah_dibaca' => false,
         ]);
 
         return redirect()->route('pengguna.konsultasi.chat', $idJadwal);
@@ -141,4 +173,21 @@ class KonsultasiController extends Controller
 
         return view('pengguna.konsultasi.jadwal', compact('jadwalSaya'));
     }
+
+    /**
+ * API: return jam terpesan untuk tanggal tertentu (JSON)
+ */
+public function getJamTerpesan(Request $request, $idSpesialis)
+{
+    $tanggal = $request->query('tanggal'); // format: Y-m-d
+
+    $jamTerpesan = JadwalKonsultasi::where('id_spesialis', $idSpesialis)
+        ->where('status', 'akan_datang')
+        ->whereDate('waktu_mulai', $tanggal)
+        ->pluck('waktu_mulai')
+        ->map(fn($dt) => $dt->format('H:i'))
+        ->toArray();
+
+    return response()->json($jamTerpesan);
+}
 }
