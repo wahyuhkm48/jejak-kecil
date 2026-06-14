@@ -42,7 +42,7 @@ class Modul extends Model
 
     public function progressSaatIni()
     {
-        $anak = auth()->user()?->anak;
+        $anak = auth()?->anak;
         if (!$anak) return null;
 
         return $this->progressAnak()->where('id_anak', $anak->id)->first();
