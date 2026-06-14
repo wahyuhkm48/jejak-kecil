@@ -15,7 +15,7 @@ return new class extends Migration
             $table->text('deskripsi')->nullable();
             $table->enum('tingkat_kesulitan', ['mudah', 'menengah', 'sulit'])->default('mudah');
             $table->string('thumbnail')->nullable();
-            $table->string('kategori')->default('Umum'); // Sains, Matematika, Bahasa, Seni, dll
+            $table->string('kategori')->default('Umum'); 
             $table->timestamps();
         });
     }

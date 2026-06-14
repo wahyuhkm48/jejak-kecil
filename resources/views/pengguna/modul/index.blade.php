@@ -6,7 +6,7 @@
 <div class="min-h-screen bg-white flex flex-col">
 
     {{-- Navbar --}}
-    @include('layouts.headerPengguna', ['activeMenu' => 'modul'])
+    @include('layouts.headerPengguna')
 
     {{-- Konten Utama --}}
     <main class="flex-1 max-w-6xl mx-auto w-full px-6 py-10">

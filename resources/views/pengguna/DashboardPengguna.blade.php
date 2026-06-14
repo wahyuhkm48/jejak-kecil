@@ -30,13 +30,6 @@
                     Breaking News
                 </h2>
 
-                <a href="/news" class="bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A]
-                            font-semibold px-5 py-2 rounded-full
-                            shadow-md transition-all duration-300">
-
-                    View All
-                </a>
-
             </div>
 
             <div class="swiper beritaSwiper rounded-[30px] overflow-hidden shadow-lg">
@@ -71,7 +64,7 @@
                         Laporan Mingguan
                     </h2>
 
-                    <a href="/news" class="bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A]
+                    <a href="{{ route('pengguna.report.index') }}" class="bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A]
                             font-semibold px-5 py-2 rounded-full
                             shadow-md transition-all duration-300">
 
@@ -128,7 +121,7 @@
                         Gamifikasi
                     </h2>
 
-                    <a href="/news" class="bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A]
+                    <a href="{{ route('pengguna.gamifikasi.index') }}" class="bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A]
                             font-semibold px-5 py-2 rounded-full
                             shadow-md transition-all duration-300">
                         Buy Now
@@ -155,7 +148,7 @@
             <h2 class="text-white text-4xl font-bold">
                 Expert Consultation
             </h2>
-            <a href="/news" class="bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A]
+            <a href="{{ route('pengguna.konsultasi.index') }}" class="bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A]
                             font-semibold px-5 py-2 rounded-full
                             shadow-md transition-all duration-300">
                 Consult Now
@@ -179,7 +172,7 @@
                     <p class="mt-4 text-gray-700 text-left text-sm">
                         With over 15 years of experience, Dr. Smith specializes in child development and learning strategies. She has helped hundreds of children reach their full potential through personalized consultations and evidence-based approaches.
                     </p>
-                    <a href="" class="mt-6 inline-block bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A] font-semibold px-6 py-2 rounded-full transition-all duration-300">
+                    <a href="{{ route('pengguna.konsultasi.index') }}" class="mt-6 inline-block bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A] font-semibold px-6 py-2 rounded-full transition-all duration-300">
                         Consult
                     </a>
                 </div>
@@ -199,7 +192,7 @@
                     <p class="mt-4 text-gray-700 text-left text-sm">
                         Dr. Doe is an expert in educational psychology with a focus on learning disabilities and special education. He has a proven track record of helping children with unique learning needs succeed academically and socially.
                     </p>
-                    <a href="" class="mt-6 inline-block bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A] font-semibold px-6 py-2 rounded-full transition-all duration-300">
+                    <a href="{{ route('pengguna.konsultasi.index') }}" class="mt-6 inline-block bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A] font-semibold px-6 py-2 rounded-full transition-all duration-300">
                         Consult
                     </a>
                 </div>
@@ -220,7 +213,7 @@
                     <p class="mt-4 text-gray-700 text-left text-sm">
                         Dr. Davis is a learning specialist with expertise in early childhood education and curriculum development. She has worked with schools and families to create engaging learning environments that foster creativity and critical thinking.
                     </p>
-                    <a href="" class="mt-6 inline-block bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A] font-semibold px-6 py-2 rounded-full transition-all duration-300">
+                    <a href="{{ route('pengguna.konsultasi.index') }}" class="mt-6 inline-block bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A] font-semibold px-6 py-2 rounded-full transition-all duration-300">
                         Consult
                     </a>
                 </div>
@@ -237,7 +230,7 @@
                     Materi Terbaru
                 </h2>
 
-                <a href="/news" class="bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A]
+                <a href="{{ route('pengguna.modul.index') }}" class="bg-[#FFD54A] hover:bg-[#F4C542] text-[#033E8A]
                             font-semibold px-5 py-2 rounded-full
                             shadow-md transition-all duration-300">
                    Views All
@@ -250,7 +243,7 @@
                     <div class="p-4">
                         <h4 class="font-bold text-[#033E8A]">Mengenal Gaya Belajar</h4>
                         <p class="text-gray-500 text-sm mt-2">Ringkasan singkat materi untuk orang tua.</p>
-                    <a href="" class="mt-8 inline-block bg-[#033E8A] hover:bg-[#022F67] text-white font-semibold px-5 py-2 rounded-full transition-all duration-300 ">
+                    <a href="{{ route('pengguna.modul.index') }}" class="mt-8 inline-block bg-[#033E8A] hover:bg-[#022F67] text-white font-semibold px-5 py-2 rounded-full transition-all duration-300 ">
                         Lihat
                     </a>
                     </div>
@@ -261,7 +254,7 @@
                     <div class="p-4">
                         <h4 class="font-bold text-[#033E8A]">Strategi Pembelajaran</h4>
                         <p class="text-gray-500 text-sm mt-2">Teknik praktis agar anak lebih fokus.</p>
-                    <a href="" class="mt-8 inline-block bg-[#033E8A] hover:bg-[#022F67] text-white font-semibold px-5 py-2 rounded-full transition-all duration-300">
+                    <a href="{{ route('pengguna.modul.index') }}" class="mt-8 inline-block bg-[#033E8A] hover:bg-[#022F67] text-white font-semibold px-5 py-2 rounded-full transition-all duration-300">
                         Lihat
                     </a>
                     </div>
@@ -272,7 +265,7 @@
                     <div class="p-4">
                         <h4 class="font-bold text-[#033E8A]">Kegiatan Kreatif</h4>
                         <p class="text-gray-500 text-sm mt-2">Ide permainan edukatif untuk rumah.</p>
-                    <a href="" class="mt-8 inline-block bg-[#033E8A] hover:bg-[#022F67] text-white font-semibold px-5 py-2 rounded-full transition-all duration-300">
+                    <a href="{{ route('pengguna.modul.index') }}" class="mt-8 inline-block bg-[#033E8A] hover:bg-[#022F67] text-white font-semibold px-5 py-2 rounded-full transition-all duration-300">
                         Lihat
                     </a>
                     </div>
@@ -283,7 +276,7 @@
                     <div class="p-4">
                         <h4 class="font-bold text-[#033E8A]">Membaca Dini</h4>
                         <p class="text-gray-500 text-sm mt-2">Langkah-langkah sederhana mengajari membaca.</p>
-                    <a href="" class="mt-4 inline-block bg-[#033E8A] hover:bg-[#022F67] text-white font-semibold px-5 py-2 rounded-full transition-all duration-300">
+                    <a href="{{ route('pengguna.modul.index') }}" class="mt-4 inline-block bg-[#033E8A] hover:bg-[#022F67] text-white font-semibold px-5 py-2 rounded-full transition-all duration-300">
                         Lihat
                     </a>
                     </div>
@@ -294,7 +287,7 @@
                     <div class="p-4">
                         <h4 class="font-bold text-[#033E8A]">Aktivitas Sensorik</h4>
                         <p class="text-gray-500 text-sm mt-2">Stimulasi sensorik untuk perkembangan motorik.</p>
-                    <a href="" class="mt-4 inline-block bg-[#033E8A] hover:bg-[#022F67] text-white font-semibold px-5 py-2 rounded-full transition-all duration-300">
+                    <a href="{{ route('pengguna.modul.index') }}" class="mt-4 inline-block bg-[#033E8A] hover:bg-[#022F67] text-white font-semibold px-5 py-2 rounded-full transition-all duration-300">
                         Lihat
                     </a>
                     </div>

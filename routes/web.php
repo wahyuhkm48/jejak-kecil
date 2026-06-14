@@ -137,3 +137,5 @@ Route::prefix('pengguna/profil')->name('pengguna.profil.')->group(function () {
 });
 
 
+Route::get('/konsultasi/{idSpesialis}/form', [KonsultasiController::class, 'formJadwal'])->name('pengguna.konsultasi.formJadwal');
+Route::get('/konsultasi/{idSpesialis}/jam-terpesan', [KonsultasiController::class, 'getJamTerpesan'])->name('pengguna.konsultasi.jamTerpesan');

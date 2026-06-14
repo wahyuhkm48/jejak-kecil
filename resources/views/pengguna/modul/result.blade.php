@@ -6,7 +6,7 @@
 <div class="min-h-screen bg-[#F7F9FC] flex flex-col">
 
     {{-- Navbar --}}
-    @include('layouts.navbarDashboard', ['activeMenu' => 'modul'])
+    @include('layouts.headerPengguna')
 
     {{-- Konten --}}
     <main class="flex-1 flex items-center justify-center px-6 py-12">
@@ -124,7 +124,7 @@
 
     </main>
 
-    @include('layouts.footerDashboard')
+    @include('layouts.footer')
 
 </div>
 
