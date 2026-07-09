@@ -1,5 +1,3 @@
-Berikut README.md lengkap berdasarkan seluruh konteks project yang sudah kamu bangun selama ini: sistem edukasi parenting & pembelajaran anak berbasis Laravel dengan pendekatan Agile Scrum, gamifikasi, monitoring orang tua, komunitas, dan fitur edukasi interaktif.
-
 # 🌱 Jejak Kecil — Smart Parenting & Child Learning Platform
 
 ## 📌 Deskripsi Project
@@ -227,7 +225,6 @@ Jejak Kecil menggunakan pendekatan desain:
 
 * Laravel Blade
 * Tailwind CSS v4
-* Alpine.js
 
 ## Backend
 
@@ -503,6 +500,23 @@ Project ini dikembangkan sebagai bagian dari:
 * UI/UX Design Project
 * Web Development Competition
 * Educational Technology Innovation
+
+---
+
+Project ini dikerjakan oleh **3 orang** sebagai bagian dari kerja tim.
+## 🙋‍♂️ Kontribusi Saya
+
+Dalam project ini, saya berperan mengembangkan seluruh fitur yang berkaitan dengan **role Admin**, meliputi:
+
+* Dashboard khusus admin - menampilkan ringkasan data secara real-time dari database MySQL
+* Create data pengguna (admin) - terintegrasi dengan database MySQL
+* Read data pengguna - terintegrasi dengan database MySQL
+* CRUD materi pembelajaran - terintegrasi dengan database MySQL
+* CRUD kuis & pengelolaan soal - terintegrasi dengan database MySQL
+* Laporan & statistik dalam bentuk grafik - data diambil dan diolah langsung dari database MySQL
+* Export data (laporan dan data pengguna dalam format Excel) - data bersumber dari database MySQL
+* Pengaturan (settings) akun admin - terintegrasi dengan database MySQL
+* Fitur logout - terintegrasi dengan session & database MySQL
 
 ---
 
